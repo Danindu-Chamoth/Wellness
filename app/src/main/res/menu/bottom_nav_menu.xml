@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/menu"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/navigation_habits"
+        android:icon="@drawable/lamp"
+        android:title="Habits" />
+
+    <item
+        android:id="@+id/navigation_moods"
+        android:icon="@drawable/smile"
+        android:title="Moods" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/setting"
+        android:title="Settings" />
+
+</menu>
