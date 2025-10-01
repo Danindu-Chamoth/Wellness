@@ -1,9 +1,10 @@
-package com.example.wellness
+package com.example.wellness.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.wellness.R
 import com.example.wellness.fragments.DashboardFragment
 import com.example.wellness.fragments.HabitsFragment
 import com.example.wellness.fragments.MoodsFragment
@@ -21,30 +22,31 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
 
-        // Set default fragment
+        // Set default fragment (Dashboard)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, DashboardFragment())
                 .commit()
+            bottomNavigationView.selectedItemId = R.id.navigation_dashboard
         }
 
-        // Set up bottom navigation listener (using updated method)
-        bottomNavigationView.setOnItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
+        // Set up bottom navigation listener
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
                 R.id.navigation_dashboard -> {
-                    replaceFragment(DashboardFragment())
+                    loadFragment(DashboardFragment())
                     true
                 }
                 R.id.navigation_habits -> {
-                    replaceFragment(HabitsFragment())
+                    loadFragment(HabitsFragment())
                     true
                 }
                 R.id.navigation_moods -> {
-                    replaceFragment(MoodsFragment())
+                    loadFragment(MoodsFragment())
                     true
                 }
                 R.id.navigation_settings -> {
-                    replaceFragment(SettingsFragment())
+                    loadFragment(SettingsFragment())
                     true
                 }
                 else -> false
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()

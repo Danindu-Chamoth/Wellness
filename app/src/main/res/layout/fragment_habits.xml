@@ -1,39 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#E8F5E8"
-    tools:context=".Fragmens.HabitsFragment">
+    android:padding="16dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="📝 HABITS"
-        android:textSize="28sp"
+        android:text="Daily Habits"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#2E7D32"
         android:gravity="center"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Build healthy habits for a better you!"
-        android:textSize="18sp"
-        android:textColor="#424242"
+        android:text="Track your wellness journey"
+        android:textSize="14sp"
         android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/tvCompletion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0%"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Today's Completion"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHabits"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginBottom="16dp" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddHabit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:src="@android:drawable/ic_input_add"
+        android:contentDescription="Add New Habit" />
+
     <TextView
+        android:id="@+id/tvEmptyState"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="• Create new habits\n• Track daily completion\n• View habit streaks\n• Set reminders and goals"
+        android:text="No habits yet\nAdd your first habit to get started!"
         android:textSize="16sp"
-        android:textColor="#666666"
-        android:lineSpacingExtra="4dp"
-        android:layout_marginTop="16dp" />
+        android:gravity="center"
+        android:visibility="gone" />
 
 </LinearLayout>
