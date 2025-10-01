@@ -1,12 +1,14 @@
 package com.example.wellness.fragments
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +18,8 @@ import com.example.wellness.adapters.HabitAdapter
 import com.example.wellness.models.Habit
 import com.example.wellness.viewmodels.HabitsViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class HabitsFragment : Fragment() {
 
@@ -25,6 +29,10 @@ class HabitsFragment : Fragment() {
     private lateinit var tvCompletion: TextView
     private lateinit var tvEmptyState: TextView
     private lateinit var fabAddHabit: FloatingActionButton
+
+    private val PREFS_NAME = "habits_prefs"
+    private val HABITS_KEY = "habits_list"
+    private val gson = Gson()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,6 +53,8 @@ class HabitsFragment : Fragment() {
         setupRecyclerView()
         setupObservers()
         setupClickListeners()
+
+        loadHabitsFromPrefs()
     }
 
     private fun initViews(view: View) {
@@ -66,10 +76,29 @@ class HabitsFragment : Fragment() {
         rvHabits.adapter = adapter
     }
 
+    private fun saveHabitsToPrefs(habits: List<Habit>) {
+        val prefs = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val json = gson.toJson(habits)
+        prefs.edit {
+            putString(HABITS_KEY, json)
+        }
+    }
+
+    private fun loadHabitsFromPrefs() {
+        val prefs = requireContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val json = prefs.getString(HABITS_KEY, null)
+        if (json != null) {
+            val type = object : TypeToken<List<Habit>>() {}.type
+            val habits: List<Habit> = gson.fromJson(json, type)
+            viewModel.setHabits(habits)
+        }
+    }
+
     private fun setupObservers() {
         viewModel.habits.observe(viewLifecycleOwner) { habits ->
             adapter.updateData(habits)
             updateEmptyState(habits.isEmpty())
+            saveHabitsToPrefs(habits)
         }
 
         viewModel.completionPercentage.observe(viewLifecycleOwner) { percentage ->

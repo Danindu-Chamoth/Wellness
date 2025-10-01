@@ -42,6 +42,11 @@ class HabitsViewModel : ViewModel() {
         updateCompletionPercentage()
     }
 
+    fun setHabits(habits: List<Habit>) {
+        _habits.value = habits.toMutableList()
+        updateCompletionPercentage()
+    }
+
     private fun updateCompletionPercentage() {
         val currentList = _habits.value ?: return
         if (currentList.isEmpty()) {
