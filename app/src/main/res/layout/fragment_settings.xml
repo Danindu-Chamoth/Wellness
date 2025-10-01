@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#F5F5F5"
     android:padding="16dp">
 
     <LinearLayout
@@ -11,33 +11,46 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header -->
-        <TextView
+        <!-- Header Card -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="⚙️ SETTINGS"
-            android:textColor="#7B1FA2"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:gravity="center"
-            android:text="Customize your wellness experience"
-            android:textColor="#424242"
-            android:textSize="18sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="⚙️ SETTINGS"
+                android:textColor="@color/bottom_nav_blue_dark"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Customize your wellness experience"
+                android:textColor="#424242"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <!-- Hydration Reminders Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Hydration Reminders"
-            android:textColor="#7B1FA2"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="💧 Hydration Reminders"
+            android:textColor="@color/bottom_nav_blue_dark"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -46,403 +59,447 @@
             android:id="@+id/btn_test_notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🧪 Test Notification Now"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#FF9800"
             android:layout_marginBottom="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:backgroundTint="#FF9800"
             android:elevation="3dp"
-            android:padding="16dp" />
+            android:padding="16dp"
+            android:text="🧪 Test Notification Now"
+            android:textColor="@android:color/white" />
 
-        <!-- Enable Water Reminders -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Enable Water Reminders"
-                android:textColor="#424242"
-                android:textSize="16sp" />
-
-            <Switch
-                android:id="@+id/switch_water_reminders"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- Reminder Interval -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Reminder Interval"
-                android:textColor="#424242"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/spinner_reminder_interval"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/reminder_intervals" />
-        </LinearLayout>
-
-        <!-- Notification Sound -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Notification Sound"
-                android:textColor="#424242"
-                android:textSize="16sp" />
-
-            <Switch
-                android:id="@+id/switch_notification_sound"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- Vibration -->
+        <!-- Hydration Settings Card -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="0dp"
+            <!-- Enable Water Reminders -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Vibration"
-                android:textColor="#424242"
-                android:textSize="16sp" />
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
 
-            <Switch
-                android:id="@+id/switch_vibration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Enable Water Reminders"
+                    android:textColor="#424242"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/switch_water_reminders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Reminder Interval -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reminder Interval"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_reminder_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/reminder_intervals" />
+            </LinearLayout>
+
+            <!-- Notification Sound -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Notification Sound"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <Switch
+                    android:id="@+id/switch_notification_sound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Vibration -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Vibration"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <Switch
+                    android:id="@+id/switch_vibration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- App Preferences Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="App Preferences"
-            android:textColor="#7B1FA2"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="🎨 App Preferences"
+            android:textColor="@color/bottom_nav_blue_dark"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- Theme -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Theme"
-                android:textColor="#424242"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/spinner_theme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/theme_options" />
-        </LinearLayout>
-
-        <!-- Font Size -->
+        <!-- App Preferences Card -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                android:layout_width="0dp"
+            <!-- Theme -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Font Size"
-                android:textColor="#424242"
-                android:textSize="16sp" />
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
 
-            <Spinner
-                android:id="@+id/spinner_font_size"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Theme"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/theme_options" />
+            </LinearLayout>
+
+            <!-- Font Size -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:entries="@array/font_size_options" />
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Font Size"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_font_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/font_size_options" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Data Management Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Data Management"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#7B1FA2"
-            android:layout_marginBottom="16dp" />
 
-        <!-- Backup Data Button -->
-        <Button
-            android:id="@+id/btn_backup_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Backup Data"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#4CAF50"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Reinstall Button -->
-        <Button
-            android:id="@+id/btn_reinstall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Reinstall App"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#FF9800"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Clear Habits Button -->
-        <Button
-            android:id="@+id/btn_clear_habits"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Clear All Habits"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#FF5252"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Clear Mood History Button -->
-        <Button
-            android:id="@+id/btn_clear_moods"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Clear Mood History"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#FF5252"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Clear All Data Button -->
-        <Button
-            android:id="@+id/btn_clear_all_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Clear All Data"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#D32F2F"
-            android:layout_marginBottom="24dp" />
+        <!-- Data Management Card -->
 
         <!-- Advanced Features Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Advanced Features"
-            android:textColor="#7B1FA2"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="🚀 Advanced Features"
+            android:textColor="@color/bottom_nav_blue_dark"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- Home Screen Widget -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Home Screen Widget"
-                    android:textColor="#424242"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Enable quick progress view on home screen"
-                    android:textColor="#666666"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <Switch
-                android:id="@+id/switch_home_widget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- Step Counter -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Step Counter"
-                    android:textColor="#424242"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Use device sensors to track daily steps"
-                    android:textColor="#666666"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <Switch
-                android:id="@+id/switch_step_counter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- Shake Detection -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Shake Detection"
-                    android:textColor="#424242"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Shake device to quickly log mood"
-                    android:textColor="#666666"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <Switch
-                android:id="@+id/switch_shake_detection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- Chart Duration -->
+        <!-- Advanced Features Card -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:background="@android:color/white"
-            android:elevation="2dp"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Chart Duration"
-                android:textColor="#424242"
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/spinner_chart_duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/chart_duration_options" />
-        </LinearLayout>
-
-        <!-- About Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="About Wellness App"
-            android:textColor="#7B1FA2"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <!-- About Info -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:elevation="2dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- Home Screen Widget -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🏠 Home Screen Widget"
+                        android:textColor="#424242"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enable quick progress view on home screen"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/switch_home_widget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Step Counter -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="👟 Step Counter"
+                        android:textColor="#424242"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Use device sensors to track daily steps"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/switch_step_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Shake Detection -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🤳 Shake Detection"
+                        android:textColor="#424242"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shake device to quickly log mood"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/switch_shake_detection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Chart Duration -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📊 Chart Duration"
+                    android:textColor="#424242"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_chart_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/chart_duration_options" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- About Section -->
+
+        <!-- About Info Card -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="🗂️ Data Management"
+            android:textColor="@color/bottom_nav_blue_dark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/DataManagement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Backup Data Button -->
+            <Button
+                android:id="@+id/btn_backup_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#2196F3"
+                android:text="💾 Backup Data"
+                android:textColor="@android:color/white" />
+
+            <!-- Reinstall Button -->
+            <Button
+                android:id="@+id/btn_reinstall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#03A9F4"
+                android:text="🔄 Reinstall App"
+                android:textColor="@android:color/white" />
+
+            <!-- Clear Habits Button -->
+            <Button
+                android:id="@+id/btn_clear_habits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#00BCD4"
+                android:text="🗑️ Clear All Habits"
+                android:textColor="@android:color/white" />
+
+            <!-- Clear Mood History Button -->
+            <Button
+                android:id="@+id/btn_clear_moods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#0277BD"
+                android:text="😊 Clear Mood History"
+                android:textColor="@android:color/white" />
+
+            <!-- Clear All Data Button -->
+            <Button
+                android:id="@+id/btn_clear_all_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#1565C0"
+                android:text="⚠️ Clear All Data"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="ℹ️ About Wellness App"
+            android:textColor="@color/bottom_nav_blue_dark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="App Version: 1.0"
+                android:text="📱 App Version: 1.0"
                 android:textColor="#666666"
                 android:textSize="14sp" />
 
@@ -450,7 +507,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Developer: SLIIT Student Project"
+                android:text="👨‍💻 Developer: SLIIT Student Project"
                 android:textColor="#666666"
                 android:textSize="14sp" />
 
@@ -458,14 +515,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Course: Mobile Application Development"
+                android:text="📚 Course: Mobile Application Development"
                 android:textColor="#666666"
                 android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Year: 2Y 2sem - 2025"
+                android:text="🗓️ Year: 2Y 2sem - 2025"
                 android:textColor="#666666"
                 android:textSize="14sp" />
         </LinearLayout>
