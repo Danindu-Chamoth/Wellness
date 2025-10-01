@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions for notifications and alarms -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,6 +31,22 @@
         <activity
             android:name=".activities.MainActivity"
             android:exported="false" />
+
+        <!-- Hydration Reminder Service -->
+        <service
+            android:name=".services.HydrationReminderService"
+            android:exported="false" />
+
+        <!-- Hydration Reminder Receiver -->
+        <receiver
+            android:name=".receivers.HydrationReminderReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="DRINK_WATER" />
+                <action android:name="SNOOZE_REMINDER" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

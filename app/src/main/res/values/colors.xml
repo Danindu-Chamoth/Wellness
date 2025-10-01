@@ -23,4 +23,8 @@
     <color name="splash_text_secondary">#E6FFFFFF</color>
     <color name="splash_accent">#FF42A5F5</color>
     <color name="logo_background_color">#33FFFFFF</color>
+
+    <!-- Settings Colors -->
+    <color name="settings_background">#F3E5F5</color>
+    <color name="settings_header">#7B1FA2</color>
 </resources>
