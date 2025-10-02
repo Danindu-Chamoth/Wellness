@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
-    android:padding="20dp"
+    android:background="#F5F5F5"
+    android:padding="16dp"
     android:fillViewport="true">
 
     <LinearLayout
@@ -12,345 +11,358 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header -->
-        <TextView
+        <!-- Header Card -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mood Journal"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="#2D3748"
-            android:gravity="center"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Track your emotional wellness"
-            android:textSize="16sp"
-            android:textColor="#718096"
-            android:gravity="center"
-            android:layout_marginBottom="32dp" />
-
-        <!-- Quick Mood Entry Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
             android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="#FFFFFF">
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp">
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="😊 MOOD JOURNAL"
+                android:textColor="@color/bottom_nav_blue_dark"
+                android:textSize="28sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Track your emotional wellness"
+                android:textColor="#424242"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Quick Mood Entry Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="✨ Quick Mood Entry"
+            android:textColor="@color/bottom_nav_blue_dark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Quick Mood Entry Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Mood Buttons Row -->
+            <HorizontalScrollView
+                android:id="@+id/moodehorizotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="Quick Mood Entry"
-                    android:textColor="#2D3748"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="8dp">
 
-                <!-- Mood Buttons Row -->
-                <HorizontalScrollView
-                    android:id="@+id/moodehorizotal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:fillViewport="true"
-                    android:scrollbars="none">
-
+                    <!-- Ecstatic -->
                     <LinearLayout
+                        android:id="@+id/layoutEcstatic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/mood_selector_background"
                         android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="8dp">
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                        <!-- Ecstatic -->
-                        <LinearLayout
-                            android:id="@+id/layoutEcstatic"
+                        <TextView
+                            android:id="@+id/btnVeryHappy"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/mood_button_circle"
+                            android:gravity="center"
+                            android:text="😍"
+                            android:textSize="28sp" />
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@drawable/mood_selector_background"
-                            android:gravity="center"
-                            android:minWidth="80dp"
-                            android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/btnVeryHappy"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:background="@drawable/mood_button_circle"
-                                android:gravity="center"
-                                android:text="😍"
-                                android:textSize="28sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Ecstatic"
-                                android:textColor="#4A5568"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Very Happy -->
-                        <LinearLayout
-                            android:id="@+id/layoutVeryHappy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@drawable/mood_selector_background"
-                            android:gravity="center"
-                            android:minWidth="80dp"
-                            android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/btnHappy"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:background="@drawable/mood_button_circle"
-                                android:gravity="center"
-                                android:text="😊"
-                                android:textSize="28sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Very"
-                                android:textColor="#4A5568"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Excited -->
-                        <LinearLayout
-                            android:id="@+id/layoutExcited"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@drawable/mood_selector_background"
-                            android:gravity="center"
-                            android:minWidth="80dp"
-                            android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/btnExcited"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:background="@drawable/mood_button_circle"
-                                android:gravity="center"
-                                android:text="🤩"
-                                android:textSize="28sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Excited"
-                                android:textColor="#4A5568"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Happy -->
-                        <LinearLayout
-                            android:id="@+id/layoutHappy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@drawable/mood_selector_background"
-                            android:gravity="center"
-                            android:minWidth="80dp"
-                            android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/btnNeutral"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:background="@drawable/mood_button_circle"
-                                android:gravity="center"
-                                android:text="😃"
-                                android:textSize="28sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Happy"
-                                android:textColor="#4A5568"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Content -->
-                        <LinearLayout
-                            android:id="@+id/layoutContent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@drawable/mood_selector_background"
-                            android:gravity="center"
-                            android:minWidth="80dp"
-                            android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/btnSad"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:background="@drawable/mood_button_circle"
-                                android:gravity="center"
-                                android:text="😊"
-                                android:textSize="28sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Content"
-                                android:textColor="#4A5568"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Upset -->
-                        <LinearLayout
-                            android:id="@+id/layoutUpset"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@drawable/mood_selector_background"
-                            android:gravity="center"
-                            android:minWidth="80dp"
-                            android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/btnVerySad"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:background="@drawable/mood_button_circle"
-                                android:gravity="center"
-                                android:text="😔"
-                                android:textSize="28sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Upset"
-                                android:textColor="#4A5568"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Add more mood options here if needed -->
-                        <!-- Sad -->
-                        <LinearLayout
-                            android:id="@+id/layoutSad"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@drawable/mood_selector_background"
-                            android:gravity="center"
-                            android:minWidth="80dp"
-                            android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/btnSadMood"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:background="@drawable/mood_button_circle"
-                                android:gravity="center"
-                                android:text="😢"
-                                android:textSize="28sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Sad"
-                                android:textColor="#4A5568"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Angry -->
-                        <LinearLayout
-                            android:id="@+id/layoutAngry"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@drawable/mood_selector_background"
-                            android:gravity="center"
-                            android:minWidth="80dp"
-                            android:orientation="vertical"
-                            android:padding="8dp">
-
-                            <TextView
-                                android:id="@+id/btnAngry"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:background="@drawable/mood_button_circle"
-                                android:gravity="center"
-                                android:text="😠"
-                                android:textSize="28sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Angry"
-                                android:textColor="#4A5568"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
+                            android:layout_marginTop="4dp"
+                            android:text="Ecstatic"
+                            android:textColor="#424242"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
-                </HorizontalScrollView>
+                    <!-- Very Happy -->
+                    <LinearLayout
+                        android:id="@+id/layoutVeryHappy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/mood_selector_background"
+                        android:gravity="center"
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
-                <!-- Action Buttons Row -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/btnHappy"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/mood_button_circle"
+                            android:gravity="center"
+                            android:text="😊"
+                            android:textSize="28sp" />
 
-                    <Button
-                        android:id="@+id/btnDetailedEntry"
-                        android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_primary"
-                        android:text="✏️ Detailed Entry"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Very Happy"
+                            android:textColor="#424242"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
-                    <Button
-                        android:id="@+id/btnShareMood"
-                        android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_secondary"
-                        android:text="📤 Share"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+                    <!-- Excited -->
+                    <LinearLayout
+                        android:id="@+id/layoutExcited"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/mood_selector_background"
+                        android:gravity="center"
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/btnExcited"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/mood_button_circle"
+                            android:gravity="center"
+                            android:text="🤩"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Excited"
+                            android:textColor="#424242"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <!-- Happy -->
+                    <LinearLayout
+                        android:id="@+id/layoutHappy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/mood_selector_background"
+                        android:gravity="center"
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/btnNeutral"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/mood_button_circle"
+                            android:gravity="center"
+                            android:text="😃"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Happy"
+                            android:textColor="#424242"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <!-- Content -->
+                    <LinearLayout
+                        android:id="@+id/layoutContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/mood_selector_background"
+                        android:gravity="center"
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/btnSad"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/mood_button_circle"
+                            android:gravity="center"
+                            android:text="😌"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Content"
+                            android:textColor="#424242"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <!-- Upset -->
+                    <LinearLayout
+                        android:id="@+id/layoutUpset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/mood_selector_background"
+                        android:gravity="center"
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/btnVerySad"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/mood_button_circle"
+                            android:gravity="center"
+                            android:text="😔"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Upset"
+                            android:textColor="#424242"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <!-- Sad -->
+                    <LinearLayout
+                        android:id="@+id/layoutSad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/mood_selector_background"
+                        android:gravity="center"
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/btnSadMood"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/mood_button_circle"
+                            android:gravity="center"
+                            android:text="😢"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Sad"
+                            android:textColor="#424242"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <!-- Angry -->
+                    <LinearLayout
+                        android:id="@+id/layoutAngry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/mood_selector_background"
+                        android:gravity="center"
+                        android:minWidth="80dp"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/btnAngry"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/mood_button_circle"
+                            android:gravity="center"
+                            android:text="😠"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Angry"
+                            android:textColor="#424242"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
+            </HorizontalScrollView>
+
+            <!-- Action Buttons Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                style="?android:attr/buttonBarStyle">
+
+                <Button
+                    android:id="@+id/btnDetailedEntry"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FF9800"
+                    android:elevation="3dp"
+                    android:text="✏️ Detailed Entry"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    style="?android:attr/buttonBarButtonStyle" />
+
+                <Button
+                    android:id="@+id/btnShareMood"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bottom_nav_blue_dark"
+                    android:elevation="3dp"
+                    android:text="📤 Share"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    style="?android:attr/buttonBarButtonStyle" />
+
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
         <!-- Hidden Elements for Detailed Entry -->
         <EditText
@@ -364,7 +376,10 @@
             android:background="@drawable/edittext_background"
             android:padding="12dp"
             android:layout_marginBottom="16dp"
-            android:visibility="gone" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:autofillHints="none" />
 
         <TextView
             android:id="@+id/tvCharCount"
@@ -372,9 +387,11 @@
             android:layout_height="wrap_content"
             android:text="0/500 characters"
             android:textSize="12sp"
-            android:textColor="#666666"
+            android:textColor="#424242"
             android:gravity="end"
             android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:visibility="gone" />
 
         <Button
@@ -383,18 +400,38 @@
             android:layout_height="wrap_content"
             android:text="Save Mood Entry"
             android:textSize="16sp"
-            android:backgroundTint="#F57C00"
+            android:backgroundTint="#FF9800"
+            android:elevation="3dp"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:visibility="gone" />
+
+        <!-- View Controls Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="👁️ View Options"
+            android:textColor="@color/bottom_nav_blue_dark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <!-- View Toggle Buttons -->
         <LinearLayout
             android:id="@+id/hover"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            style="?android:attr/buttonBarStyle">
 
             <Button
                 android:id="@+id/btnListView"
@@ -402,20 +439,23 @@
                 android:layout_height="40dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_outline_gray"
+                android:backgroundTint="@color/bottom_nav_blue_dark"
+                android:elevation="2dp"
                 android:text="📋 List View"
-                android:textColor="#0B0B0B"
-                android:textSize="14sp" />
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                style="?android:attr/buttonBarButtonStyle" />
 
             <Button
                 android:id="@+id/btnCalendarView"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_outline_gray"
+                android:backgroundTint="@color/bottom_nav_blue_dark"
                 android:text="📅 Calendar"
-                android:textColor="#4A5568"
+                android:textColor="#FFFFFF"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -428,140 +468,147 @@
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
+        <!-- Statistics Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="📊 Your Statistics"
+            android:textColor="@color/bottom_nav_blue_dark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <!-- Quick Stats -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:baselineAligned="false">
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
                 android:layout_marginEnd="8dp"
-                app:cardBackgroundColor="#FFFFFF">
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvTotalEntries"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:text="1"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bottom_nav_blue_dark" />
 
-                    <TextView
-                        android:id="@+id/tvTotalEntries"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:textColor="#2D3748" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Entries"
+                    android:textSize="12sp"
+                    android:textColor="#424242" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Total Entries"
-                        android:textSize="12sp"
-                        android:textColor="#718096" />
+            </LinearLayout>
 
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                app:cardBackgroundColor="#FFFFFF">
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvTodayEntries"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:text="1"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bottom_nav_blue_dark" />
 
-                    <TextView
-                        android:id="@+id/tvTodayEntries"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:textColor="#2D3748" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today"
+                    android:textSize="12sp"
+                    android:textColor="#424242" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Today"
-                        android:textSize="12sp"
-                        android:textColor="#718096" />
+            </LinearLayout>
 
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
                 android:layout_marginStart="8dp"
-                app:cardBackgroundColor="#FFFFFF">
+                android:background="@drawable/rounded_background"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvWeeksTracked"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center">
+                    android:text="1"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bottom_nav_blue_dark" />
 
-                    <TextView
-                        android:id="@+id/tvWeeksTracked"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:textColor="#2D3748" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weeks Tracked"
+                    android:textSize="12sp"
+                    android:textColor="#424242" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Weeks Tracked"
-                        android:textSize="12sp"
-                        android:textColor="#718096" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
         </LinearLayout>
 
-        <!-- Mood History Header -->
+        <!-- Mood History Section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recent Mood Entries"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#2D3748"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="12dp"
+            android:text="📝 Recent Mood Entries"
+            android:textColor="@color/bottom_nav_blue_dark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <!-- Mood History -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMoodHistory"
+        <!-- Mood History Card -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="true" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Mood History -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMoodHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="true" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
