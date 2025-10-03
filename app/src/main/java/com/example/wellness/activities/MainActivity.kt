@@ -9,6 +9,7 @@ import com.example.wellness.fragments.DashboardFragment
 import com.example.wellness.fragments.HabitsFragment
 import com.example.wellness.fragments.MoodsFragment
 import com.example.wellness.fragments.SettingsFragment
+import com.example.wellness.utils.ThemeManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +17,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Apply theme before calling super.onCreate()
+        ThemeManager.applyTheme(this)
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)

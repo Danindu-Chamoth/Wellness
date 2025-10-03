@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.wellness.R
 import com.example.wellness.services.HydrationReminderService
+import com.example.wellness.utils.ThemeManager
 
 class SettingsFragment : Fragment() {
 
@@ -96,8 +97,8 @@ class SettingsFragment : Fragment() {
         switchNotificationSound.isChecked = sharedPreferences.getBoolean("notification_sound", true)
         switchVibration.isChecked = sharedPreferences.getBoolean("vibration_enabled", true)
 
-        // Load app preferences
-        spinnerTheme.setSelection(sharedPreferences.getInt("theme", 0)) // Default: Light Mode
+        // Load app preferences - use ThemeManager to get current theme
+        spinnerTheme.setSelection(ThemeManager.getCurrentTheme(requireContext()))
         spinnerFontSize.setSelection(sharedPreferences.getInt("font_size", 1)) // Default: Medium
 
         // Load advanced features
@@ -145,11 +146,21 @@ class SettingsFragment : Fragment() {
             showToast("Vibration ${if (isChecked) "enabled" else "disabled"}")
         }
 
-        // App Preferences
+        // App Preferences - Updated theme listener
         spinnerTheme.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                sharedPreferences.edit().putInt("theme", position).apply()
-                showToast("Theme setting saved - restart app to see changes")
+                // Only apply theme if it's different from current selection
+                val currentTheme = ThemeManager.getCurrentTheme(requireContext())
+                if (position != currentTheme) {
+                    // Set the new theme using ThemeManager
+                    ThemeManager.setTheme(requireContext(), position)
+
+                    val themeNames = arrayOf("Light Mode", "Dark Mode", "System Default")
+                    showToast("Theme changed to ${themeNames[position]}")
+
+                    // Recreate activity to apply theme immediately
+                    requireActivity().recreate()
+                }
             }
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
