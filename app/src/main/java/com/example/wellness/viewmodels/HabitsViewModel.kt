@@ -37,9 +37,12 @@ class HabitsViewModel : ViewModel() {
     fun toggleHabitCompletion(id: Int) {
         val currentList = _habits.value ?: return
         val habit = currentList.find { it.id == id }
-        habit?.isCompleted = !(habit?.isCompleted ?: false)
-        _habits.value = currentList
-        updateCompletionPercentage()
+        if (habit != null) {
+            habit.isCompleted = !habit.isCompleted
+            // Force LiveData update by creating new list reference
+            _habits.value = currentList.toMutableList()
+            updateCompletionPercentage()
+        }
     }
 
     fun setHabits(habits: List<Habit>) {

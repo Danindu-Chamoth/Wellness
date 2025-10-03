@@ -57,4 +57,7 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.cardview:cardview:1.0.0")
+    
+    // Chart library
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }

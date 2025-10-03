@@ -30,8 +30,8 @@ class HabitsFragment : Fragment() {
     private lateinit var tvEmptyState: TextView
     private lateinit var fabAddHabit: FloatingActionButton
 
-    private val PREFS_NAME = "habits_prefs"
-    private val HABITS_KEY = "habits_list"
+    private val PREFS_NAME = "WellnessPrefs" // Changed to match DashboardFragment
+    private val HABITS_KEY = "habits"
     private val gson = Gson()
 
     override fun onCreateView(

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary_color">#1976D2</color>
+    <color name="primary_dark">#0D47A1</color>
+    <color name="accent_color">#FF9800</color>
+
+    <!-- Background Colors -->
+    <color name="background_light">#F8FAFF</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="motivational_background">#E8F5E8</color>
+    <color name="progress_background">#FFFFFF</color>
+    <color name="emoji_background">#FFF3E0</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="motivational_text">#2E7D32</color>
+
+    <!-- Action Button Colors -->
+    <color name="action_button_green">#4CAF50</color>
+    <color name="action_button_blue">#2196F3</color>
+    <color name="action_button_cyan">#00BCD4</color>
+    <color name="action_button_orange">#FF9800</color>
+    <color name="water_button_background">#E3F2FD</color>
+</resources>
+

@@ -34,10 +34,17 @@ class HabitAdapter(
         val habit = habits[position]
 
         holder.tvHabitName.text = habit.name
+
+        // Set checkbox state without triggering the listener
+        holder.checkBox.setOnCheckedChangeListener(null)
         holder.checkBox.isChecked = habit.isCompleted
 
-        holder.checkBox.setOnClickListener {
-            onToggleComplete(habit)
+        // Set up the checkbox listener
+        holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
+            // Only call the toggle if the state actually changed
+            if (isChecked != habit.isCompleted) {
+                onToggleComplete(habit)
+            }
         }
 
         holder.btnEdit.setOnClickListener {

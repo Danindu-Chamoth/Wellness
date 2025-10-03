@@ -1,39 +1,998 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/background_light"
     android:padding="16dp"
-    android:background="#E3F2FD"
-    tools:context=".Fragmens.DashboardFragment">
+    android:scrollbars="none">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="📊 DASHBOARD"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#1976D2"
-        android:gravity="center"
-        android:layout_marginBottom="20dp" />
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome to your Wellness Dashboard!"
-        android:textSize="18sp"
-        android:textColor="#424242"
-        android:gravity="center"
-        android:layout_marginBottom="16dp" />
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/header_background"
+            android:padding="20dp"
+            android:layout_marginBottom="24dp"
+            android:elevation="2dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="• Track your daily progress\n• View wellness statistics\n• Monitor your goals\n• Get insights and recommendations"
-        android:textSize="16sp"
-        android:textColor="#666666"
-        android:lineSpacingExtra="4dp"
-        android:layout_marginTop="16dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📊 WELLNESS DASHBOARD"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_dark"
+                android:gravity="start" />
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:background="@drawable/pill_background"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp" />
+
+        </LinearLayout>
+
+        <!-- Habit Completion Summary -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="12dp"
+            android:layout_marginHorizontal="2dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/gradient_background_enhanced"
+                android:padding="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="20dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Daily Progress"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="• 8:52 PM"
+                        android:textSize="12sp"
+                        android:textColor="@android:color/white"
+                        android:alpha="0.7" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:weightSum="3">
+
+                    <!-- Completion Percentage -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/stats_item_background"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tvCompletionPercentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Completed"
+                            android:textSize="11sp"
+                            android:textColor="@android:color/white"
+                            android:alpha="0.8"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.1" />
+
+                    </LinearLayout>
+
+                    <!-- Circular Progress Indicator -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="8dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            app:cardCornerRadius="45dp"
+                            app:cardElevation="8dp"
+                            android:layout_marginVertical="8dp"
+                            app:cardBackgroundColor="@color/progress_background">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:background="@drawable/progress_circle_enhanced">
+
+                                <TextView
+                                    android:id="@+id/tvHabitsCompleted"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/primary_color"
+                                    android:fontFamily="sans-serif-medium" />
+
+                                <TextView
+                                    android:id="@+id/tvTotalHabits"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="of 0"
+                                    android:textSize="9sp"
+                                    android:textColor="@color/text_secondary"
+                                    android:textAllCaps="true" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <!-- Remaining Percentage -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/stats_item_background"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tvRemainingPercentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100%"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Remaining"
+                            android:textSize="11sp"
+                            android:textColor="@android:color/white"
+                            android:alpha="0.8"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Status Message -->
+                <TextView
+                    android:id="@+id/tvHabitStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Start your day! 🌅"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/status_message_background"
+                    android:padding="12dp"
+                    android:fontFamily="sans-serif-light" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Today's Mood -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Today's Mood"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✨"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/mood_section_background"
+                    android:padding="16dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:cardCornerRadius="25dp"
+                        app:cardElevation="4dp"
+                        android:layout_marginEnd="16dp"
+                        app:cardBackgroundColor="@color/emoji_background">
+
+                        <TextView
+                            android:id="@+id/tvMoodEmoji"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="😊"
+                            android:textSize="28sp"
+                            android:gravity="center" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvMoodStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No mood logged yet"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:id="@+id/tvMoodNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tap to add your mood"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:layout_marginTop="4dp"
+                            android:visibility="visible" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        android:tint="@color/accent_color"
+                        android:alpha="0.6" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Hydration Status -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/hydrationCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Hydration Status"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💧"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/hydration_section_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvHydrationStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Reminders: OFF"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tvWaterIntake"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Water: 0/8 glasses"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btnAddWater"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="@color/water_button_background"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="+"
+                            android:textColor="@color/primary_color"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Quick Actions -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Quick Actions"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:gravity="center">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/action_button_green">
+
+                        <Button
+                            android:id="@+id/btnAddHabit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="➕\nHabit"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/action_button_blue">
+
+                        <Button
+                            android:id="@+id/btnLogMood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="😊\nMood"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/action_button_cyan">
+
+                        <Button
+                            android:id="@+id/btnHydrationSettings"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="💧\nWater"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="6dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/action_button_orange">
+
+                        <Button
+                            android:id="@+id/btnViewTrends"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="📊\nTrends"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:padding="12dp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Motivational Message -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/motivational_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💡"
+                    android:textSize="24sp"
+                    android:layout_marginEnd="16dp" />
+
+                <TextView
+                    android:id="@+id/tvMotivationalMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Stay positive, stay healthy! 🌱"
+                    android:textSize="15sp"
+                    android:textColor="@color/motivational_text"
+                    android:fontFamily="sans-serif-light"
+                    android:lineSpacingMultiplier="1.2" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Mood Trend Chart -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMoodTrend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Chart Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mood Trend"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#424242" />
+
+                        <TextView
+                            android:id="@+id/tvChartPeriod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Last 7 days"
+                            android:textSize="12sp"
+                            android:textColor="#888888" />
+
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/btnCloseChart"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:contentDescription="Close chart"
+                        android:tint="#666666" />
+
+                </LinearLayout>
+
+                <!-- Mood Scale and Chart Area -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <!-- Y-axis labels -->
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="😄"
+                            android:textSize="20sp"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="😊"
+                            android:textSize="20sp"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="😐"
+                            android:textSize="20sp"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="😔"
+                            android:textSize="20sp"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="😢"
+                            android:textSize="20sp"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                    <!-- Chart Area -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="#FFF5F5"
+                        android:padding="8dp">
+
+                        <!-- MPAndroidChart LineChart -->
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/moodLineChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- X-axis labels (dates) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/tvDate1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sep 27"
+                        android:textSize="10sp"
+                        android:textColor="#888888"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvDate2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sep 28"
+                        android:textSize="10sp"
+                        android:textColor="#888888"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvDate3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sep 29"
+                        android:textSize="10sp"
+                        android:textColor="#888888"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvDate4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sep 30"
+                        android:textSize="10sp"
+                        android:textColor="#888888"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvDate5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Oct 1"
+                        android:textSize="10sp"
+                        android:textColor="#888888"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvDate6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Oct 2"
+                        android:textSize="10sp"
+                        android:textColor="#888888"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvDate7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Oct 3"
+                        android:textSize="10sp"
+                        android:textColor="#888888"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- Chart Summary -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:weightSum="3">
+
+                    <!-- Average -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="😊"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Average"
+                            android:textSize="12sp"
+                            android:textColor="#666666" />
+
+                        <TextView
+                            android:id="@+id/tvAverageValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Okay"
+                            android:textSize="12sp"
+                            android:textColor="#2196F3" />
+
+                    </LinearLayout>
+
+                    <!-- Trend -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📊"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trend"
+                            android:textSize="12sp"
+                            android:textColor="#666666" />
+
+                        <TextView
+                            android:id="@+id/tvTrendValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Stable"
+                            android:textSize="12sp"
+                            android:textColor="#2196F3" />
+
+                    </LinearLayout>
+
+                    <!-- Period -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📅"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Period"
+                            android:textSize="12sp"
+                            android:textColor="#666666" />
+
+                        <TextView
+                            android:id="@+id/tvPeriodValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7 days"
+                            android:textSize="12sp"
+                            android:textColor="#2196F3" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Status Message -->
+                <TextView
+                    android:id="@+id/tvMoodTrendStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your mood is stable 😊"
+                    android:textSize="14sp"
+                    android:textColor="#2196F3"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Period Selection -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btn7d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="7d"
+                        android:textSize="12sp"
+                        android:backgroundTint="#2196F3"
+                        android:textColor="@android:color/white"
+                        android:layout_margin="4dp"
+                        style="@style/Widget.Material3.Button" />
+
+                    <Button
+                        android:id="@+id/btn14d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="14d"
+                        android:textSize="12sp"
+                        android:backgroundTint="#E0E0E0"
+                        android:textColor="#666666"
+                        android:layout_margin="4dp"
+                        style="@style/Widget.Material3.Button" />
+
+                    <Button
+                        android:id="@+id/btn30d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="30d"
+                        android:textSize="12sp"
+                        android:backgroundTint="#E0E0E0"
+                        android:textColor="#666666"
+                        android:layout_margin="4dp"
+                        style="@style/Widget.Material3.Button" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>
